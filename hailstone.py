@@ -17,20 +17,43 @@ def hail(x):
             bounces.append(int(x))
     return bounces
 
+def collatz(lst):
+    """Takes in a list of integers and returns a dictionary with the number of bounces for each item in the list"""
+    master = {}
+    for item in lst:
+        master[item] = hail(item)
+    return master
 
 
+# twenty_seven = np.array(hail(27))
+# twenty_eight = np.array(hail(28))
+# i = np.array(hail(432))
+# print(twenty_seven)
+# print('-'*20)
+# print(twenty_eight)
+# print('-'*20)
+# print(i)
+#
+# plt.plot(twenty_seven)
+# plt.plot(twenty_eight)
+# plt.plot(i)
+# plt.grid(alpha=0.4)
+# plt.show()
 
-twenty_seven = np.array(hail(27))
-twenty_eight = np.array(hail(28))
-i = np.array(hail(432))
-print(twenty_seven)
-print('-'*20)
-print(twenty_eight)
-print('-'*20)
-print(i)
+nums = np.arange(10, 201)
 
-plt.plot(twenty_seven)
-plt.plot(twenty_eight)
-plt.plot(i)
-plt.grid(alpha=0.4)
+d = collatz(nums)
+print(d)
+print('-'*30)
+print(len(d[27]))
+print(len(d[28]))
+print(len(d[29]))
+print(len(d[30]))
+print(len(d[31]))
+
+plt.plot(d[27])
+plt.plot(d[31])
 plt.show()
+
+# We need to get the number of bounces per int and for hail
+# we need to change bounces to a better descriptor
